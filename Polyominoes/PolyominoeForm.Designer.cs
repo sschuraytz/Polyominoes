@@ -1,6 +1,6 @@
 ﻿namespace Polyominoes
 {
-    partial class Form1
+    partial class PolyominoeForm
     {
         /// <summary>
         /// Required designer variable.
