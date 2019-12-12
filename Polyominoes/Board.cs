@@ -8,6 +8,13 @@ namespace Polyominoes
 {
     class Board
     {
+        public Squarie[,] squaries { get; set; }
+
+        public Board(int nrRows, int nrCols)
+        {
+            squaries = new Squarie[nrRows, nrCols];
+        }
+
 
     }
 }

@@ -8,9 +8,7 @@ namespace Polyominoes
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        // TODO --> Build out implementation of algorithm :)
         [STAThread]
         static void Main()
         {

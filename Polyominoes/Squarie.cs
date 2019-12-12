@@ -8,35 +8,25 @@ namespace Polyominoes
 {
     class Squarie
     {
-        private int[] xy;
+        private int Row { get; set; }
+        private int Col { get; set; }
 
-        public Squarie(int x, int y)
+        public Squarie(int row, int col)
         {
-            xy = new int[2];
-            xy[0] = x;
-            xy[1] = y;
-        }
-
-        public int[] GetCoordinates()
-        {
-            int[] coordinates = new int[2];
-            for (int cc = 0; cc < 2; ++cc)
-            {
-                coordinates[cc] = xy[cc];
-            }
-            return coordinates;
+            this.Row = row;
+            this.Col = col;
         }
 
         /**
          * move (translate) the Squarie
          *
-         * @param x : int - number of units to the right
-         * @param y : int = number of units up
+         * @param row : int - number of units to the right
+         * @param col : int = number of units up
          */
-        public void Translate(int x, int y)
+        public void Translate(int row, int col)
         {
-            xy[0] += x;
-            xy[1] += y;
+            this.Row += row;
+            this.Col += col;
         }
 
         /**
@@ -46,31 +36,34 @@ namespace Polyominoes
          * | 0 -1 |        <br>
          * | 1  0 |
          */
+         
+        // As we have redefined what it means to be a Squarie,
+        // this is now going on our TODO list to revise. :|
         public void Rotate90()
         {
-            int tmp = xy[0];
-            xy[0] = -1 - xy[1];
-            xy[1] = tmp;
+            int tmp = this.Row;
+            this.Row = -1 - this.Col;
+            this.Col = tmp;
         }
 
         /**
-         * reflect the Squarie across the x-axis This transformation is not possible
+         * reflect the Squarie across the row-axis This transformation is not possible
          * in 2 dimensions
          */
         public void Reflect()
         {
-            xy[1] = -1 - xy[1];
+            this.Col = -1 - this.Col;
         }
 
-        public string ToString() => "[" + xy[0] + "," + xy[1] + "]";
+        public string ToString() => "[" + this.Row + "," + this.Col + "]";
 
         public bool Equals(Object other)
         {
             bool isEqual = false;
             if (other != null
                 && (other.GetType() == typeof(Squarie))
-                && ((Squarie)other).xy[0] == xy[0]
-                && ((Squarie)other).xy[0] == xy[0])
+                && ((Squarie)other).Row == this.Row
+                && ((Squarie)other).Col == this.Col)
         {
                 isEqual = true;
             }

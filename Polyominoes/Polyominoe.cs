@@ -8,14 +8,14 @@ namespace Polyominoes
 {
     class Polyominoe
     {
-        protected List<Squarie> squares;
+        protected List<Squarie> polyominoe;
 
-        public Polyominoe(int[][] boxes)
+        public Polyominoe(int[][] squares)
         {
-            squares = new List<Squarie>();
-            for (int box = 0; box < boxes.Length; ++box)
+            polyominoe = new List<Squarie>();
+            for (int square = 0; square < squares.Length; ++square)
             {
-                squares.Add(new Squarie(boxes[box][0], boxes[box][1]));
+                polyominoe.Add(new Squarie(squares[square][0], squares[square][1]));
             }
         }
 
@@ -26,9 +26,9 @@ namespace Polyominoes
          * @param x : int - number of units to the right
          * @param y : int = number of units up
          */
-        public void translate(int x, int y)
+        public void Translate(int x, int y)
         {
-            foreach(Squarie sqr in squares)
+            foreach(Squarie sqr in polyominoe)
             {
                 sqr.Translate(x, y);
             }
@@ -37,18 +37,20 @@ namespace Polyominoes
         /**
          * rotate the Polyominoe 90 degrees counter-clockwise 
          */
-        public void rotate90()
+        public void Rotate90()
         {
-            foreach (Squarie sqr in squares)
+            foreach (Squarie sqr in polyominoe)
             {
                 sqr.Rotate90();
             }
+            // need to move it move it
+
         }
-        
-        public String toString()
+
+        public string ToString()
         {
-            String strRV = "{ ";
-            foreach (Squarie sqr in squares)
+            string strRV = "{ ";
+            foreach (Squarie sqr in polyominoe)
             {
                 strRV += sqr.ToString();
             }
