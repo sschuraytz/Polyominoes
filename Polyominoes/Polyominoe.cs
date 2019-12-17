@@ -10,12 +10,12 @@ namespace Polyominoes
     {
         protected List<Squarie> polyominoe;
 
-        public Polyominoe(int[][] squares)
+        public Polyominoe(int[,] squares)
         {
             polyominoe = new List<Squarie>();
-            for (int square = 0; square < squares.Length; ++square)
+            for (int ordinal = 0; ordinal < squares.Length; ++ordinal)
             {
-                polyominoe.Add(new Squarie(squares[square][0], squares[square][1]));
+                polyominoe.Add(new Squarie(squares[ordinal,0], squares[ordinal,1]));
             }
         }
 
@@ -47,7 +47,7 @@ namespace Polyominoes
 
         }
 
-        public string ToString()
+        public override string ToString()
         {
             string strRV = "{ ";
             foreach (Squarie sqr in polyominoe)
