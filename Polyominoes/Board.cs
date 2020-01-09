@@ -8,11 +8,10 @@ namespace Polyominoes
 {
     class Board
     {
-
         int Size { get; set; }
         private Dictionary<Squarie, Squarie> rotateMap;
         private List<Polyominoe> Polyominoes;
-        readonly bool[,] Occupied;
+        public Colors[,] Occupied { get; private set; }
         readonly Squarie[,] SquarieArray;
         private readonly int max = 4;
 
@@ -20,7 +19,8 @@ namespace Polyominoes
         {
             Size = nrRowsAndCols;
             SquarieArray = new Squarie[Size, Size];
-            Occupied = new bool[Size, Size];
+            Occupied = new Colors[Size, Size];
+            //??check if this is being initialized to 0
         }
 
         public void Populate(List<Polyominoe> polyominoes)
@@ -61,7 +61,7 @@ namespace Polyominoes
         private void Add(Polyominoe poly)
         {
             foreach( Squarie square in poly.Squaries ) {
-                Occupied[square.Row, square.Col] = true;
+                Occupied[square.Row, square.Col] = poly.Color;
             }
         }
 
@@ -69,7 +69,7 @@ namespace Polyominoes
         {
             foreach (Squarie square in poly.Squaries)
             {
-                Occupied[square.Row, square.Col] = false;
+                Occupied[square.Row, square.Col] = poly.Color;
             }
         }
 
@@ -78,7 +78,7 @@ namespace Polyominoes
             bool isValid = true;
             foreach(Squarie square in poly.Squaries)
             {
-                if (Occupied[square.Row, square.Col] == true)
+                if (Occupied[square.Row, square.Col] != Colors.NONE)
                 {
                     isValid = false;
                     break;

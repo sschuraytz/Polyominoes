@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Polyominoes
 {
+
+    public enum Colors {NONE = 0, YELLOW, RED, BLUE, GREEN};
+
     class Polyominoe
     {
         public List<Squarie> Squaries { get; private set; }
+        public Colors Color { get; private set; }
 
-        public Polyominoe(int[,] squares)
+        public Polyominoe(int[,] squares, Colors color)
         {
+            Color = color;
             Squaries = new List<Squarie>();
             for (int ordinal = 0; ordinal < squares.Length; ++ordinal)
             {
