@@ -39,8 +39,7 @@ namespace Polyominoes
                 for (int col = 0; col < size; col++)
                 {
                     Panel mini = new Panel();
-
-                    mini.Height = mini.Width = 50;
+                    mini.Height = mini.Width = pnl.Width / 4;
                     mini.Location = new Point(row * mini.Width, col * mini.Height);
                     SetSquarieColor(mini, row, col);
                   
