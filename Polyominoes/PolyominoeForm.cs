@@ -42,10 +42,35 @@ namespace Polyominoes
 
                     mini.Height = mini.Width = 50;
                     mini.Location = new Point(row * mini.Width, col * mini.Height);
-                    mini.BackColor = Color.BlueViolet;
+                    SetSquarieColor(mini, row, col);
+                  
                     mini.BorderStyle = BorderStyle.Fixed3D;
                     pnl.Controls.Add(mini);
                 }
+            }
+        }
+
+        public void SetSquarieColor(Panel mini, int row, int col)
+        {
+            if (board.Occupied[row, col] == Colors.YELLOW)
+            {
+                mini.BackColor = Color.Yellow;
+            }
+            else if (board.Occupied[row, col] == Colors.BLUE)
+            {
+                mini.BackColor = Color.Blue;
+            }
+            else if (board.Occupied[row, col] == Colors.GREEN)
+            {
+                mini.BackColor = Color.Green;
+            }
+            else if (board.Occupied[row, col] == Colors.RED)
+            {
+                mini.BackColor = Color.Red;
+            }
+            else
+            {
+                mini.BackColor = Color.Beige;
             }
         }
     }
